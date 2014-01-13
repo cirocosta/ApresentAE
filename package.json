@@ -1,0 +1,20 @@
+{
+  "name": "apresentae",
+  "version": "0.0.1",
+  "author": "Ciro S. Costa <ciro9758@gmail.com> (http://google.com/+ciroscosta)",
+  "description": "All my presentation projects",
+  "homepage": "https://apresentae.appspot.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cirocosta/ApresentAE"
+  },
+  "bugs": {
+    "url": "https://github.com/cirocosta/ApresentAE/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-cssmin": "~0.7.0"
+  }
+}
