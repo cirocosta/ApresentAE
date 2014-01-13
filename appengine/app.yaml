@@ -1,0 +1,38 @@
+application: apresentae
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+
+handlers:
+-   url: /favicon.ico
+    static_files: media/img/favicon.ico
+    upload: media/img/favicon.ico
+    secure: always
+
+-   url: /static
+    static_dir: static
+    secure: always
+
+-   url: /.*
+    script: main.application
+    secure: always
+
+
+error_handlers:
+-   file: templates/default_error.html
+
+
+libraries:
+-   name: pycrypto
+    version: latest
+
+-   name: endpoints
+    version: 1.0
+
+-   name: webapp2   
+    version: latest
+
+-   name: jinja2
+    version: latest
