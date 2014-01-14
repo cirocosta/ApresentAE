@@ -11,3 +11,5 @@ JINJA_ENVIRONMENT 	= jinja2.Environment(
     extensions 	= 	['jinja2.ext.autoescape'],
     autoescape	=	True
     )
+
+GCM_BROWSER_API_KEY = 'AIzaSyD4HwTbi1ekfnXB4VBFeoFnRSWVsE7NlVo'

@@ -1,21 +1,28 @@
 /** 
- * Here are defined all the tasks to be execute with GruntJS.
+ *  Here are defined all the tasks to be execute with GruntJS.
  */
 
 
 /**
- * Importing the GruntJS module
+ *  Importing the GruntJS module
  */
 
  module.exports = function(grunt) {
     'use strict';
  
     /**
-     * Project configuration
+     *  Project configuration
      */
     var gruntConfig = {
         pkg: grunt.file.readJSON('package.json'),
         
+        /**
+         *  Configuration for the CSS minifier.
+         *      banner: option tells what message that i want to
+         *          put on every minified JS file.
+         *      mangle: changes variables names to little ones
+         *          so that the code gets smaller and unreadable  
+         */
         uglify: {
             options: {
                 mangle: true,
@@ -32,6 +39,9 @@
             }
         },
 
+        /**
+         * Configuration for the CSS minifier.
+         */
         cssmin : {
             minify: {
                 expand: true,
@@ -41,23 +51,33 @@
                 ext: '.min.css'
             }
         },
-
+        /**
+         * Configuration for the JSHint.
+         * Here i just go through static/js files, that is,
+         * not going to the minified ones. There's also the global
+         * jQuery to be ignored.
+         */
         jshint: {
-            all: ['appengine/static/js/*.js']
+            options: {
+                globals: {
+                    jQuery: true
+                }
+            },
+            all: ['appengine/static/js/**/*.js']
         }
     };
  
     grunt.initConfig(gruntConfig);
  
     /**
-     * Inicializacao dos Plugins
+     *  Inicializacao dos Plugins
      */
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     /**
-     * Registro de Tarefas
+     *  Registro de Tarefas
      */
-    grunt.registerTask('default', ['cssmin','jshint','uglify']);
+    grunt.registerTask('default', ['jshint','cssmin','uglify']);
 };

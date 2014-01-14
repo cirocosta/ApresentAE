@@ -1,0 +1,32 @@
+{%extends 'base/base.html'%}
+{%block title%}GCM Mensageiro{%endblock%}
+{%block extrahead%}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/build/css/gcm_testing/gcm_mensageiro.min.css">
+<script type="text/javascript" src="/_ah/channel/jsapi"></script>
+{%endblock%}
+{%block content%}
+<div class="text-center" style="margin-bottom:50px">
+  <h1 style="font-size:50px">Código teste</h1>
+  <code style="font-size:40px">{{codigo}}</code>
+</div>
+<div class="col-md-6">
+  <fieldset>
+    <legend><h2>Aparelho conectado</h2></legend>
+    <div id="info_aparelhos">
+      <p class="text-muted text-center"><strong>Abrindo canal ...</strong></p>
+    </div>
+  </fieldset>
+
+</div>
+<div class="col-md-6">
+  <fieldset>
+    <legend><h2>Mensagem</h2></legend>
+  </fieldset>
+  <label>Mensagem para os aparelhos:</label>
+  <input id="input_mensagem" placeholder="Mensagem" class="form-control" autofocus>
+  <button class="btn btn-default" id="botao_enviar" style="margin-top:5px">Enviar</button>
+</div>
+
+<script type="text/javascript" src="/static/build/js/gcm_testing/gcm_mensageiro.min.js"></script>
+{%endblock%}

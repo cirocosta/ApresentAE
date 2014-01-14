@@ -7,7 +7,11 @@ $(function(){
 	var modal_aparecendo = false;
 	
 	function toggle_modal(){
-		modal_aparecendo ? close_modal() : mostra_modal(300,'/gcm_testing/mensageiro');
+		if(modal_aparecendo){
+			close_modal();
+			return;
+		}
+		mostra_modal(300,'/gcm_testing/mensageiro');
 	}
 
 	function mostra_modal(tempo,url){
@@ -18,7 +22,10 @@ $(function(){
 		$white_background.fadeIn(tempo);
 		$modal_container.fadeIn(tempo);
 		setTimeout(function(){
-			$conteudo_modal_container.html('<div class="text-center"><p class="lead text-muted">Carregando...</p></div>');
+			$conteudo_modal_container.html(
+				'<div class="text-center">' +
+				'<p class="lead text-muted">Carregando...</p>' + 
+				'</div>');
 			$conteudo_modal_container.load(url,function(){
 				$conteudo_modal_container.fadeIn();
 			});
@@ -34,7 +41,7 @@ $(function(){
 		$modal_container.fadeOut(tempo);
 		setTimeout(function(){
 			$conteudo_modal_container.html('');
-		},300)
+		},300);
 	}
 
 	$botao_testar.click(function(){
@@ -43,7 +50,7 @@ $(function(){
 
 	$botao_close.click(function(){
 		toggle_modal();
-	})
+	});
 
 	$(document).keyup(function(e){
 		if(modal_aparecendo){
@@ -52,6 +59,4 @@ $(function(){
 			}
 		}
 	});
-
-
 });

@@ -1,0 +1,20 @@
+code {
+    color:rgb(124, 118, 118);
+}
+
+input {
+    border-color: #D0D0D0 !important;
+    box-shadow: 0 0 0 #fff !important;
+    transition: box-shadow 0.7s;
+}
+
+input:focus{
+    box-shadow:0 0 8px rgb(215, 215, 215) !important;
+}
+
+.aparelho{
+    padding: 2px;
+    border-radius: 2px;
+    box-shadow: 0 2px rgb(204, 204, 204);
+    background: #f8f8f8;
+} 
