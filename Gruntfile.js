@@ -18,7 +18,8 @@
         
         uglify: {
             options: {
-                mangle: true
+                mangle: true,
+                banner: '/** ApresentAE! \n <%= pkg.author %> \n */ \n'
             },
             my_target: {
                 files: [{
