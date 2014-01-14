@@ -2,6 +2,7 @@
 
 import os
 import jinja2
+import secrets
 
 DEBUG 				= True
 
@@ -12,4 +13,4 @@ JINJA_ENVIRONMENT 	= jinja2.Environment(
     autoescape	=	True
     )
 
-GCM_BROWSER_API_KEY = 'AIzaSyD4HwTbi1ekfnXB4VBFeoFnRSWVsE7NlVo'
+GCM_BROWSER_API_KEY = secrets.GCM_BROWSER_API_KEY
