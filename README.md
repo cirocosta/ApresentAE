@@ -23,6 +23,13 @@ Dentro de cada projeto em `/projects` há um README.md sobre o projeto em si.
 A ideia é que todo projeto seja altamente comentado para aprendizado.
 
 
+
+Projetos
+-----
+A pasta projetos contém os **views e models** de cada projeto listado no index. Dentro de cada subpasta do projects há então um README contendo as informações daquele projeto em si.
+
+
+
 Running
 -----
 Para um correto ambiente de desenvolvimento é importante:

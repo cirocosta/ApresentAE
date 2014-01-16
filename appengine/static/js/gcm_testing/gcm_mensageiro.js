@@ -1,4 +1,3 @@
-
 var $info_aparelhos = $('#info_aparelhos');
 var $aparelho = $('.aparelho');
 var $exemplo_aparelho = $('#exemplo_aparelho');
@@ -25,7 +24,6 @@ function onMessage(msg){
     '</div>'
   );
   regid_aparelho = message.regid;
-  console.log(regid_aparelho);
 }
 
 function onError(){
@@ -48,14 +46,12 @@ function verifica_se_pode_enviar(elemento){
 }
 
 function envia_mensagem(botao,url,data){
-  console.log(data);
   $.ajax({
     type:'POST',
     url:url,
     data:data
   }).done(function(msg){
     var response = $.parseJSON(msg);
-    console.log(response);
     var has_error = false;
     for(var key in response){
       if(key == 'error'){
@@ -95,5 +91,7 @@ $botao_enviar.click(function(){
       registration_ids: regid_aparelho,
       message: $input_mensagem.val()
     });
+  } else {
+    $(this).text("Enviar");
   }
 });
