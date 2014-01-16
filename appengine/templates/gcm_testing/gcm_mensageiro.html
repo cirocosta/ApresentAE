@@ -6,27 +6,44 @@
 <script type="text/javascript" src="/_ah/channel/jsapi"></script>
 {%endblock%}
 {%block content%}
-<div class="text-center" style="margin-bottom:50px">
-  <h1 style="font-size:50px">Código teste</h1>
-  <code style="font-size:40px">{{codigo}}</code>
-</div>
-<div class="col-md-6">
-  <fieldset>
-    <legend><h2>Aparelho conectado</h2></legend>
-    <div id="info_aparelhos">
-      <p class="text-muted text-center"><strong>Abrindo canal ...</strong></p>
-    </div>
-  </fieldset>
+<div class="container">
+  <div class="text-center" style="margin-bottom:50px">
+    <h1 style="font-size:50px">Código teste</h1>
+    <code style="font-size:40px">{{codigo}}</code>
+  </div>
+  <div class="col-md-6">
+    <fieldset>
+      <legend><h2>Aparelho conectado</h2></legend>
+      <div id="info_aparelhos">
+        <p class="text-muted text-center"><strong>Abrindo canal ...</strong></p>
+      </div>
+    </fieldset>
 
-</div>
-<div class="col-md-6">
-  <fieldset>
-    <legend><h2>Mensagem</h2></legend>
-  </fieldset>
-  <label>Mensagem para os aparelhos:</label>
-  <input id="input_mensagem" placeholder="Mensagem" class="form-control" autofocus>
-  <button class="btn btn-default" id="botao_enviar" style="margin-top:5px">Enviar</button>
+  </div>
+  <div class="col-md-6">
+    <fieldset>
+      <legend><h2>Mensagem</h2></legend>
+    </fieldset>
+    <label>Mensagem para os aparelhos:</label>
+    <input id="input_mensagem" placeholder="Mensagem" class="form-control" autofocus>
+    <button class="btn btn-default" id="botao_enviar" style="margin-top:5px">Enviar</button>
+  </div>
 </div>
 
 <script type="text/javascript" src="/static/build/js/gcm_testing/gcm_mensageiro.min.js"></script>
+<script type="text/javascript">
+  channel = new goog.appengine.Channel('{{token}}');
+  var handler = {
+      'onopen': onOpened,
+      'onclose': onClose,
+      'onmessage': onMessage,
+      'onerror': onError
+  };
+
+  socket = channel.open(handler);
+  socket.onopen = onOpened;
+  socket.onmessage = onMessage;
+
+</script>
+
 {%endblock%}

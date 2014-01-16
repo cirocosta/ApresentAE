@@ -1,11 +1,11 @@
 {%extends 'base/base.html'%}
 {%block title%}GCM Testing{%endblock%}
 {%block extrahead%}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
 <script type="text/javascript" src="/_ah/channel/jsapi"></script>
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="/static/build/css/gcm_testing/gcm_index.min.css">
-<script type="text/javascript" src="/static/build/js/gcm_testing/gcm_index.min.js"></script>
+<!-- <script type="text/javascript" src="/static/build/js/gcm_testing/gcm_index.min.js"></script> -->
 {%endblock%}
 {%block content%}
 	<div id="frente_branca"></div>
@@ -22,7 +22,7 @@
 				<h1>GCM Testing</h1>	
 				<h3>Teste básico para client de GCM</h3>	
 				<div style="margin-top:50px">
-					<button class="btn btn-primary btn-lg" id="botao_testar">Testar Já!</button>
+					<a href="/gcm_testing/mensageiro" class="btn btn-primary btn-lg" id="botao_testar">Testar Já!</a>
 				</div>
 			</div>
 		</div>

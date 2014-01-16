@@ -1,8 +1,3 @@
-/**
- *  TODO// recriar a logica para nao precisar do JS direto
- *  no HTML e entao ser possivel minificar --> fazer com padrao
- *  de projeto melhor
- */
 
 var $info_aparelhos = $('#info_aparelhos');
 var $aparelho = $('.aparelho');
@@ -40,18 +35,6 @@ function onError(){
 function onClose(){
   altera_mensagem_channel('Channel fechado. Tente novamente mais tarde');
 }
-
-channel = new goog.appengine.Channel('{{token}}');
-var handler = {
-    'onopen': onOpened,
-    'onclose': onClose,
-    'onmessage': onMessage,
-    'onerror': onError
-};
-
-socket = channel.open(handler);
-socket.onopen = onOpened;
-socket.onmessage = onMessage;
 
 
 var $botao_enviar = $('#botao_enviar');
