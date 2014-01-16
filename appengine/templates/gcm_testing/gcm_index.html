@@ -1,58 +1,49 @@
 {%extends 'base/base.html'%}
 {%block title%}GCM Testing{%endblock%}
 {%block extrahead%}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
 <script type="text/javascript" src="/_ah/channel/jsapi"></script>
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="/static/build/css/gcm_testing/gcm_index.min.css">
-<script type="text/javascript" src="/static/build/js/gcm_testing/gcm_index.min.js"></script>
+<!-- <script type="text/javascript" src="/static/build/js/gcm_testing/gcm_index.min.js"></script> -->
 {%endblock%}
 {%block content%}
 	<div id="frente_branca"></div>
-	<div id="white_background"></div>
-	<div id="modal_container">
-		<button type="button" class="close" id="botao_close" aria-hidden="true">&times;</button>
-		<div id="conteudo_modal_container" style="display:none"></div>
-	</div>
 
 	<div id="wrapper">
 
-		<div class="jumbotron" id="header">
-			<div class="container text-center">
+		<div class="jumbotron" id="div_header">
+			<header class="container text-center">
 				<h1>GCM Testing</h1>	
 				<h3>Teste básico para client de GCM</h3>	
 				<div style="margin-top:50px">
-					<button class="btn btn-primary btn-lg" id="botao_testar">Testar Já!</button>
+					<a href="/gcm_testing/mensageiro" class="btn btn-primary btn-lg" id="botao_testar">Testar Já!</a>
 				</div>
-			</div>
+			</header>
 		</div>
 
 		<div class="jumbotron" style="background-color:#f5f5f5;box-shadow: 0 2px 10px #f0f0f0;margin-top: -30px;">
 			<div class="container" id="div_descricao">
-				<div class="row">
-					<div class="col-md-6">
+				<section class="row">
+					<article class="col-md-6">
 						<h2>Sobre</h2>
 						GCM Testing é um pequeno projeto para que as pessoas possam, antes de iniciar a implementação 
-						do server-side do GCM (Google Cloud Messaging) possam testar se o client-side foi devidamente configurado. <br><br>
+						do server-side do GCM (Google Cloud Messaging), testar se o client-side foi devidamente configurado. <br><br>
 						O serviço poderá ser corretamente utilizado quanto o status de <em>Aparelho Conectado</em> for <em>Aguardando aparelhos</em>. Se persistir a mensagem <em>Abrindo canal</em> atualize a página e tente de novo (um novo código será gerado) e deixe a janela aberta. O aparelho será reconhecido automaticante se a implementação for correta no client-side.
-
-					</div>
-					<div class="col-md-6">
+					</article>
+					<article class="col-md-6">
 						<h2>Código</h2>
 						Todo o código, tanto deste testador quanto de uma implementação client-side padrão estão disponíveis no GitHub. <br><br>
-
-						Por enquanto apenas o código da aplicação Android está <a href="https://github.com/cirocosta/GCM_sample_APP">disponível</a>.<br><br>
-
-						O Projeto ainda carece de boa documentação, porém isto será feito aos poucos.
-					</div>
-				</div>
+						O código da implementação de um client que efetiva a comunicação com este serviço está <a href="https://github.com/cirocosta/GCM_sample_APP">disponível aqui</a>. Está também disponível o <a href="https://github.com/cirocosta/ApresentAE">código da aplicação web</a>.<br><br>
+					</article>
+				</section>
 			</div>
 		</div>
 	</div>
 
-	<div style="background:#f0f0f0">
+	<footer style="background:#f0f0f0">
 		<div class="container" style="padding:10px">
 			<p class="text-muted text-right"><a href="https://plus.google.com/+ciroscosta">Ciro S. Costa</a></p>
 		</div>
-	</div>
+	</footer>
 {%endblock%}

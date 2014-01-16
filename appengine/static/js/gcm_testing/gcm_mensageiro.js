@@ -1,9 +1,3 @@
-/**
- *  TODO// recriar a logica para nao precisar do JS direto
- *  no HTML e entao ser possivel minificar --> fazer com padrao
- *  de projeto melhor
- */
-
 var $info_aparelhos = $('#info_aparelhos');
 var $aparelho = $('.aparelho');
 var $exemplo_aparelho = $('#exemplo_aparelho');
@@ -30,7 +24,6 @@ function onMessage(msg){
     '</div>'
   );
   regid_aparelho = message.regid;
-  console.log(regid_aparelho);
 }
 
 function onError(){
@@ -40,18 +33,6 @@ function onError(){
 function onClose(){
   altera_mensagem_channel('Channel fechado. Tente novamente mais tarde');
 }
-
-channel = new goog.appengine.Channel('{{token}}');
-var handler = {
-    'onopen': onOpened,
-    'onclose': onClose,
-    'onmessage': onMessage,
-    'onerror': onError
-};
-
-socket = channel.open(handler);
-socket.onopen = onOpened;
-socket.onmessage = onMessage;
 
 
 var $botao_enviar = $('#botao_enviar');
@@ -65,14 +46,12 @@ function verifica_se_pode_enviar(elemento){
 }
 
 function envia_mensagem(botao,url,data){
-  console.log(data);
   $.ajax({
     type:'POST',
     url:url,
     data:data
   }).done(function(msg){
     var response = $.parseJSON(msg);
-    console.log(response);
     var has_error = false;
     for(var key in response){
       if(key == 'error'){
@@ -112,5 +91,7 @@ $botao_enviar.click(function(){
       registration_ids: regid_aparelho,
       message: $input_mensagem.val()
     });
+  } else {
+    $(this).text("Enviar");
   }
 });
